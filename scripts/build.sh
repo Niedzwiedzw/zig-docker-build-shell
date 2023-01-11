@@ -29,8 +29,9 @@ LLVM_PREFIX="${ZIG_BOOTSTRAP_PATH}/out/${TARGET}-${MCPU}"
 ZIG_BIN="${ZIG_PREFIX}/bin/zig"
 
 cd "${ZIG_PATH}";
-
-echo "alias rebuild-zig=\"${ZIG_BIN} build -p stage3 --search-prefix ${LLVM_PREFIX} --zig-lib-dir lib -Dstatic-llvm\"" >> ~/.bashrc
+REBUILD_ALIAS="alias rebuild-zig=\"${ZIG_BIN} build -p stage3 --search-prefix ${LLVM_PREFIX} --zig-lib-dir lib -Dstatic-llvm --verbose\""
+echo "adding to bashrc: ${REBUILD_ALIAS}";
+echo "${REBUILD_ALIAS}" >> ~/.bashrc
 
 
 echo "[${ZIG_PATH}] all set up, type 'rebuild-zig' to rebuild"
